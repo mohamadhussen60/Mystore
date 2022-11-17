@@ -1,0 +1,13 @@
+<div class="product-container ">
+  <a [routerLink]="['/ProductDetail',Product.id]" [queryParams]="{id:Product.id}">
+    <img src="{{Product.url}}" alt="" srcset="" class="product-image ">
+  </a>
+  <h2>{{Product.name}}</h2>
+  <h3>$: {{Product.price}}</h3>
+  <select class="select-input ">
+    <option *ngFor="let s of selectinput">{{s}}</option>
+
+  </select>
+  <button class="btn btn-primary" (click)=" addtocart.emit(Product)">Add To Cart</button>
+
+</div>
