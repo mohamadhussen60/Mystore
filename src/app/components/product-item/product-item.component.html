@@ -4,10 +4,5 @@
   </a>
   <h2>{{Product.name}}</h2>
   <h3>$: {{Product.price}}</h3>
-  <select class="select-input ">
-    <option *ngFor="let s of selectinput">{{s}}</option>
-
-  </select>
-  <button class="btn btn-primary" (click)=" addtocart.emit(Product)">Add To Cart</button>
-
+<app-add-cart [productcart]="Product"></app-add-cart>
 </div>

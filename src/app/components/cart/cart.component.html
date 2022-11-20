@@ -1,1 +1,11 @@
-<p>cart works!</p>
+
+<div class="detail-container" *ngFor="let cart Of listofcart">
+
+  <img src="{{cart.url}}" alt="" class="img">
+  <div class="detail-item ">
+    <h1>{{cart.name}} " </h1>
+    <h2>${{cart.price}}</h2>
+    <h3>{{cart.Quentity}}</h3>
+    <br>
+    <div>
+

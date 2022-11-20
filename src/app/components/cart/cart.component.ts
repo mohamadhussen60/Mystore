@@ -1,4 +1,10 @@
+
 import { Component, OnInit ,Input} from '@angular/core';
+
+import { HttpService } from 'src/app/services/http.service';
+
+
+
 
 @Component({
   selector: 'app-cart',
@@ -6,22 +12,18 @@ import { Component, OnInit ,Input} from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-@Input() listofcart:any
-  constructor() {
-    this.listofcart=[{
-      id: Number,
-      name: String,
-      price: Number,
-      url: String,
-      description: String,
-      Quentity:1
-    }]
+ listofcart:any
+
+  constructor(private http: HttpService) {
+
   }
 
   ngOnInit(): void {
+    this.listofcart= this.http.listofcart
+    console.log(this.listofcart)
   }
   addtocart(Pr:any[]): void {
-this.listofcart=this.listofcart.Push(Pr)
+this.http.addtocart(Pr)
 alert('This Product Was Added')
 console.log(this.listofcart)
   }

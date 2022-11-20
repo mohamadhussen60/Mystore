@@ -2,19 +2,15 @@
 
   <img src="{{ProductDetail.url}}" alt="" class="img">
   <div class="detail-item ">
-    <h1>{{ProductDetail.name}}</h1>
+    <h1>{{ProductDetail.name}} " </h1>
     <h2>${{ProductDetail.price}}</h2>
     <h3>{{ProductDetail.description}}</h3>
     <br>
-
-    <select class="select-input ">
-      <option ></option>
-
-    </select>
-    <button class="btn btn-primary" (click)=" addtocart.emit(ProductDetail )">Add To Cart</button>
-    <a routerLink="/" class="back-link">Back To Product List</a>
+    <div>
+      <app-add-cart [productcart]="ProductDetail"></app-add-cart>
+      <a routerLink="/" class="back-link">Back To Product List</a>
+    </div>
+    <br>
   </div>
-
-
 
 </div>

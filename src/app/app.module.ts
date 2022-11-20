@@ -13,6 +13,9 @@ import { ProductItemDetailComponent } from './components/product-item-detail/pro
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { AddCartComponent } from './components/add-cart/add-cart.component';
+
 
 
 
@@ -24,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
     ProductItemDetailComponent,
     ProductItemComponent,
     ProductListComponent,
+    AddCartComponent,
 
   ],
   imports: [
@@ -32,7 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     FontAwesomeModule,
     NgbModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],
