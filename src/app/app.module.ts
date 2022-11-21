@@ -15,6 +15,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddCartComponent } from './components/add-cart/add-cart.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 
@@ -37,7 +39,8 @@ import { AddCartComponent } from './components/add-cart/add-cart.component';
     NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSlideToggleModule
 
   ],
   providers: [],

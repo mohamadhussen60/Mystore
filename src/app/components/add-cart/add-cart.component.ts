@@ -18,7 +18,7 @@ export class AddCartComponent implements OnInit {
       name:String,
       price:Number,
       url:String,
-    //  Quentity:1,
+     Quentity:1,
     }]
 
 
@@ -33,6 +33,8 @@ export class AddCartComponent implements OnInit {
     this.productcart.price= Product.price
     this.productcart.url= Product.url
     this.productcart.Quentity= this.Quentity
+    this.productcart.Subtotal= parseFloat( Product.price ) * this.productcart.Quentity;
+
     this.rotur.navigate(['/'])
 this.http.addtocart(this.productcart)
   }

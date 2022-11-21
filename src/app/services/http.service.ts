@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
   inpurselect: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   listofcart: any[]=[]
+  amountpayment :any
+  user: any
 
   constructor(private http: HttpClient) {
 
@@ -24,7 +26,10 @@ export class HttpService {
     this.listofcart.push(caritem)
 
     console.log(this.listofcart)  }
-
+setamount(am :any,user :any):void{
+this.amountpayment=am
+this.user=user
+}
 
 
 }
