@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { HttpService } from 'src/app/services/http.service';
 import { Router } from '@angular/router';
-import { DecimalPipe } from '@angular/common';
+
 
 
 
@@ -52,7 +52,7 @@ export class CartComponent implements OnInit {
   }
   confirm(am :any ):void{
 this.http.setamount(am,this.fullname)
-    this.rotur.navigate(['/Confirmation'])
+  //  this.rotur.navigate(['/Confirmation'])
   }
 
 }

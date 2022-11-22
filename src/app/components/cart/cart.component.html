@@ -1,60 +1,65 @@
-<div class="cart-container">
-  <div class="cart-item-details" *ngFor="let cart Of listofcart">
-    <img src="{{cart.url}}" alt="" class="img">
-    <div class="detail-item ">
-      <h1>{{cart.name}} " </h1>
-      <h2>${{cart.price}}</h2>
+<div class="container">
+  <div class="container" *ngIf="totalprice==0.00">
+
+    <h1 class="empty-cart-message"> Your Cart Is Empty </h1>
+    <br>
+    <button routerLink="/" class="btn btn-primary"> Back to product list</button>
+  </div>
+  <app-confirmation *ngIf="fullname && Address && creditcartnumber"></app-confirmation>
+  <div class="row" *ngIf="totalprice>0">
+    <div class="col-5">
       <div>
+        <div class="cart-panel" *ngFor="let cart Of listofcart" class="cart-item-details">
+          <img src="{{cart.url}}" alt="" class="img">
 
-        <h3>Amount</h3>
-        <select class="select-input" [(ngModel)]="cart.Quentity" (change)="calutettotal()">
-          <option *ngFor="let s of selectinput">{{s}}</option>
+          <h1>{{cart.name}} </h1>
+          <h2>${{cart.price}}</h2>
 
-        </select>
+
+          <h3>Amount</h3>
+          <select class="select-input" [(ngModel)]="cart.Quentity" (change)="calutettotal()">
+            <option *ngFor="let s of selectinput">{{s}}</option>
+
+          </select>
+        </div>
       </div>
-
     </div>
+    <div class="col-5">
+      <h1> Total : ${{totalprice}}</h1>
+      <form (ngSubmit)="confirm(totalprice)" #form="ngForm">
+        <label> full Name</label>
+
+        <input type="text" id="fullname" name="fullname" class="form-control" required minlength="4"
+          [(ngModel)]="fullname" placeholder="full Name" #TheName="ngModel">
+        <div *ngIf="TheName.invalid && (TheName.dirty || TheName.touched)" class="alert alert-danger">
+          You Most Enter your Name 4 digital
+        </div>
+        <label>Address</label>
+
+        <input type="text" id="Address" name="Address" class="form-control" required minlength="9" [(ngModel)]="Address"
+          placeholder="Your Address" #theAddress="ngModel">
+
+        <div *ngIf="theAddress.invalid && (theAddress.dirty || theAddress.touched)" class="alert alert-danger">
+          You Most Enter your Address 6 digital
+        </div>
 
 
 
+        <label>Credit Cart Number</label>
+
+        <input type="text" id="creditcartnumber" name="creditcartnumber" class="form-control" required maxlength="16"
+          minlength="16" [(ngModel)]="creditcartnumber" placeholder="Enter the 16 digital" #thecar="ngModel">
+        <div *ngIf="thecar.invalid && (thecar.dirty || thecar.touched)" class="alert alert-danger">
+          You Most Enter your Cart 16 digital
+        </div>
+
+        <label>we will not share your information disclaimer</label>
+
+
+
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+
+      </form>
+    </div>
   </div>
-  <br>
-  <h1 class="number-input"> Total : ${{totalprice}}</h1>
-
-  <div class="form-margin">
-    <!-- " -->
-    <form (ngSubmit)="confirm(totalprice)" #form="ngForm" *ngIf="totalprice>0">
-      <label> full Name</label>
-
-      <input type="text" id="fullname" name="fullname" class="form-control" required minlength="4"
-        [(ngModel)]="fullname" placeholder="full Name" #TheName="ngModel">
-      <div *ngIf="TheName.invalid && (TheName.dirty || TheName.touched)" class="alert alert-danger">
-        You Most Enter your Name 4 digital
-      </div>
-      <label>Address</label>
-
-      <input type="text" id="Address" name="Address" class="form-control" required minlength="9" [(ngModel)]="Address"
-        placeholder="Your Address" #theAddress="ngModel">
-
-      <div *ngIf="theAddress.invalid && (theAddress.dirty || theAddress.touched)" class="alert alert-danger">
-        You Most Enter your Address 6 digital
-      </div>
-
-
-
-      <label>Credit Cart Number</label>
-
-      <input type="text" id="creditcartnumber" name="creditcartnumber" class="form-control" required maxlength="16"
-        minlength="16" [(ngModel)]="creditcartnumber" placeholder="Enter the 16 digital" #thecar="ngModel">
-      <div *ngIf="thecar.invalid && (thecar.dirty || thecar.touched)" class="alert alert-danger">
-        You Most Enter your Cart 16 digital
-      </div>
-
-      <label>we will not share your information disclaimer</label>
-
-
-
-      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
-
-    </form>
-  </div>
+</div>
