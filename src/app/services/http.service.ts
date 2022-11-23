@@ -8,18 +8,26 @@ import { Router } from '@angular/router';
 })
 export class HttpService {
   inpurselect: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  listofcart: any[] = [];
+  listofcart: any[]=[];
   amountpayment: any;
   user: any;
 
-  constructor(private http: HttpClient, private rotur: Router) {}
+  constructor(private http: HttpClient, private rotur: Router) {
+
+  }
   getproduct(): Observable<[]> {
     return this.http.get<[]>('assets/json/data.json');
   }
   addtocart(caritem: any): void {
-    const idproduct = caritem.id;
-    const check = this.listofcart.filter((x) => x.id == idproduct);
-    console.log(check);
+    let list= this.listofcart
+    console.log(caritem)
+
+    let idproduct = caritem.id;
+    // if (typeof(idproduct)!=number) {
+    //   idproduct = caritem[0].id
+    // }
+    const check = list.filter(x=> x.id == idproduct);
+    console.log(idproduct);
     if (check.length == 0) {
       this.listofcart.push(caritem);
       console.log(this.listofcart);

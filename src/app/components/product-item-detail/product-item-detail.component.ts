@@ -15,7 +15,7 @@ export class ProductItemDetailComponent implements OnInit {
   selectinput: any
   Quentity: Number = 1
   id: Number = 0;
-  listofproduct: any[] = [1];
+  listofproduct: any[] = [];
   ProductDetail: any
   constructor(private route: ActivatedRoute, private http: HttpService, private Route: Router,) {
     this.ProductDetail = [{
@@ -49,17 +49,15 @@ export class ProductItemDetailComponent implements OnInit {
       })
     });
   }
-  addtocart(Product: any): void {
-    // this.ProductDetail.id = this.listofproduct.filter(x => x.id == this.id).map(x => x.id)
-    // this.ProductDetail.name = this.listofproduct.filter(x => x.id == this.id).map(x => x.name)
-    // this.ProductDetail.price = this.listofproduct.filter(x => x.id == this.id).map(x => x.price)
-    // this.ProductDetail.url = this.listofproduct.filter(x => x.id == this.id).map(x => x.url)
-    // this.ProductDetail.description = this.listofproduct.filter(x => x.id == this.id).map(x => x.description)
-    // this.ProductDetail.Quentity = this.Quentity
-    // console.log(this.ProductDetail)
-    this.http.addtocart(Product)
-    this.Route.navigate(['/'])
-  }
+  // addtocart(Product: any): void {
+  //   // this.ProductDetail.id = this.listofproduct.filter(x => x.id == this.id).map(x => x.id)
+  //   // this.ProductDetail.name = this.listofproduct.filter(x => x.id == this.id).map(x => x.name)
+  //   // this.ProductDetail.price = this.listofproduct.filter(x => x.id == this.id).map(x => x.price)
+  //   // this.ProductDetail.url = this.listofproduct.filter(x => x.id == this.id).map(x => x.url)
+  //   // this.ProductDetail.description = this.listofproduct.filter(x => x.id == this.id).map(x => x.description)
+  //   // this.ProductDetail.Quentity = this.Quentity
+  //   // console.log(this.ProductDetail)
+  //   this.http.addtocart(Product)
+  //   this.Route.navigate(['/'])
+  // }
 }
-
-

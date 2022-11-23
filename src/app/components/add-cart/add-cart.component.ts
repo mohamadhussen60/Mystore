@@ -37,9 +37,11 @@ export class AddCartComponent implements OnInit {
     this.productcart.Quentity= this.Quentity
     this.productcart.Subtotal= parseFloat( Product.price ) * this.productcart.Quentity;
 
-    this.rotur.navigate(['/'])
+
     console.log(this.productcart)
+
 this.http.addtocart(this.productcart)
+//  this.rotur.navigate(['/'])
   }
 
 
