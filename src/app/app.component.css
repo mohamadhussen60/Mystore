@@ -1,0 +1,19 @@
+.header {
+  text-align: center;
+  background: #33B5E5;
+  color: #fff;
+  height: 80px;
+  padding: 12px;
+}
+
+a {
+  color: #ffffff;
+}
+
+#logo {
+
+  position:fixed;
+  top: 0;
+  left: 0;
+
+}

@@ -1,0 +1,13 @@
+<div>
+  <select class="select-input" [(ngModel)]="Quentity">
+    <option *ngFor="let s of selectinput">{{s}}</option>
+
+  </select>
+
+  <br>
+
+  <br>
+
+  <button class="btn btn-primary" (click)=" addtocart(productcart)">Add To Cart</button>
+
+</div>

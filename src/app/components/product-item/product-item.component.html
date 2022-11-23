@@ -1,0 +1,8 @@
+<div class="product-container ">
+  <a [routerLink]="['/ProductDetail',Product.id]" [queryParams]="{id:Product.id}">
+    <img src="{{Product.url}}" alt="" srcset="" class="product-image ">
+  </a>
+  <h2>{{Product.name}}</h2>
+  <h3>$: {{Product.price}}</h3>
+<app-add-cart [productcart]="Product"></app-add-cart>
+</div>
