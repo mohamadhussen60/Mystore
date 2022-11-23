@@ -12,6 +12,7 @@ export class AddCartComponent implements OnInit {
  @Input() productcart:any
  selectinput:any
   Quentity: Number=1
+
   constructor( private http: HttpService,private rotur: Router) {
  this.productcart=[{
       id:Number,
@@ -19,6 +20,7 @@ export class AddCartComponent implements OnInit {
       price:Number,
       url:String,
      Quentity:1,
+
     }]
 
 
@@ -38,4 +40,6 @@ export class AddCartComponent implements OnInit {
     this.rotur.navigate(['/'])
 this.http.addtocart(this.productcart)
   }
+
+
 }

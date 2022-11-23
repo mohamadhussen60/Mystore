@@ -16,12 +16,13 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   listofcart: any[] = []
   totalprice: any
-  fullname:String=''
-  Address:String=''
-  creditcartnumber:String=''
-  selectinput: Number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  fullname: String = ''
+  Address: String = ''
+  creditcartnumber: String = ''
+  selectinput: Number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  confrimation: boolean = false
 
-  constructor(private http: HttpService,private rotur: Router) {
+  constructor(private http: HttpService, private rotur: Router) {
 
   }
 
@@ -37,8 +38,8 @@ export class CartComponent implements OnInit {
     this.totalprice = sum.toFixed(2)
     console.log(this.listofcart)
   }
-  calutettotal(){
-    this.listofcart.forEach(e => e.Subtotal= parseFloat(e.price)*parseFloat(e.Quentity));
+  calutettotal() {
+    this.listofcart.forEach(e => e.Subtotal = parseFloat(e.price) * parseFloat(e.Quentity));
     const sum = this.listofcart.reduce((accumulator, object) => {
       return accumulator + object.Subtotal;
     }, 0);
@@ -50,9 +51,20 @@ export class CartComponent implements OnInit {
     alert('This Product Was Added')
     console.log(this.listofcart)
   }
-  confirm(am :any ):void{
-this.http.setamount(am,this.fullname)
-  //  this.rotur.navigate(['/Confirmation'])
+  confirm(am: any): void {
+    this.http.setamount(am, this.fullname)
+    this.confrimation = true
+    //  this.rotur.navigate(['/Confirmation'])
   }
+  removefromcart(Pr: any[]): void {
+    this.http.removefromcart(Pr)
+    this.listofcart = this.http.listofcart
+    const sum = this.listofcart.reduce((accumulator, object) => {
+      return accumulator + object.Subtotal;
+    }, 0);
 
+    this.totalprice = sum.toFixed(2)
+
+    this.calutettotal()
+  }
 }
