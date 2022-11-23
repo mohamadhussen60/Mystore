@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
 
+This project is an e-marketing project, and it was done with the Angeler. It is one of the best work frameworks that works through a single page and an application that consists of a group of goods that the user chooses from, then he goes to the shopping cart and confirms the selected quantities, after that he makes the payment and the user shows the payment and purchase confirmation screen
+
+
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

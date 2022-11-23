@@ -50,14 +50,14 @@ export class ProductItemDetailComponent implements OnInit {
     });
   }
   addtocart(Product: any): void {
-    this.ProductDetail.id = this.listofproduct.filter(x => x.id == this.id).map(x => x.id)
-    this.ProductDetail.name = this.listofproduct.filter(x => x.id == this.id).map(x => x.name)
-    this.ProductDetail.price = this.listofproduct.filter(x => x.id == this.id).map(x => x.price)
-    this.ProductDetail.url = this.listofproduct.filter(x => x.id == this.id).map(x => x.url)
-    this.ProductDetail.description = this.listofproduct.filter(x => x.id == this.id).map(x => x.description)
-    this.ProductDetail.Quentity = this.Quentity
-    console.log(this.ProductDetail)
-    this.http.addtocart(this.ProductDetail)
+    // this.ProductDetail.id = this.listofproduct.filter(x => x.id == this.id).map(x => x.id)
+    // this.ProductDetail.name = this.listofproduct.filter(x => x.id == this.id).map(x => x.name)
+    // this.ProductDetail.price = this.listofproduct.filter(x => x.id == this.id).map(x => x.price)
+    // this.ProductDetail.url = this.listofproduct.filter(x => x.id == this.id).map(x => x.url)
+    // this.ProductDetail.description = this.listofproduct.filter(x => x.id == this.id).map(x => x.description)
+    // this.ProductDetail.Quentity = this.Quentity
+    // console.log(this.ProductDetail)
+    this.http.addtocart(Product)
     this.Route.navigate(['/'])
   }
 }

@@ -23,10 +23,10 @@ export class HttpService {
     return this.http.get<[]>('assets/json/data.json')
   }
   addtocart(caritem: any): void {
-
-    const check = this.listofcart
-    console.log(check.filter(x=>x.id==caritem.id))
-    if (check.filter(x=>x.id==caritem.id).length==0) {
+  const idproduct =caritem.id
+    const check = this.listofcart.filter(x=>x.id===idproduct)
+    console.log(typeof(idproduct))
+    if (check.length==0) {
       this.listofcart.push(caritem)
       console.log(this.listofcart)
       alert("Product added Successfully !!!!!")
